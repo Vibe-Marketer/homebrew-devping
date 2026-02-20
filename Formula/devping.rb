@@ -9,11 +9,15 @@ class Devping < Formula
   depends_on :macos => :sonoma
 
   def install
-    # Move the .app into prefix (creates prefix/DevPing.app)
-    (prefix/"DevPing.app").mkpath
-    system "cp", "-R", "DevPing.app/.", "#{prefix}/DevPing.app/"
+    # Debug: list what's in buildpath
+    system "ls", "-la", buildpath.to_s
 
-    # CLI shim so `devping` works from the terminal
+    app_src = buildpath/"DevPing.app"
+    odie "DevPing.app not found in #{buildpath}" unless app_src.directory?
+
+    (prefix/"DevPing.app").mkpath
+    system "cp", "-R", "#{app_src}/.", "#{prefix}/DevPing.app/"
+
     (bin/"devping").write <<~SH
       #!/bin/bash
       exec "#{prefix}/DevPing.app/Contents/MacOS/devping" "$@"
