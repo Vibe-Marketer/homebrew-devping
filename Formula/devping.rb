@@ -9,15 +9,13 @@ class Devping < Formula
   depends_on :macos => :sonoma
 
   def install
-    # Debug: list what's in buildpath
-    system "ls", "-la", buildpath.to_s
-
-    app_src = buildpath/"DevPing.app"
-    odie "DevPing.app not found in #{buildpath}" unless app_src.directory?
-
+    # Homebrew moves the top-level zip directory (DevPing.app) INTO buildpath,
+    # so buildpath itself IS DevPing.app (contains Contents/).
+    # We need to copy buildpath as DevPing.app into prefix.
     (prefix/"DevPing.app").mkpath
-    system "cp", "-R", "#{app_src}/.", "#{prefix}/DevPing.app/"
+    system "cp", "-R", "#{buildpath}/.", "#{prefix}/DevPing.app/"
 
+    # CLI shim so `devping` works from the terminal
     (bin/"devping").write <<~SH
       #!/bin/bash
       exec "#{prefix}/DevPing.app/Contents/MacOS/devping" "$@"
