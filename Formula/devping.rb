@@ -9,7 +9,8 @@ class Devping < Formula
   depends_on :macos => :sonoma
 
   def install
-    prefix.install "DevPing.app"
+    # The zip contains DevPing.app at root level
+    prefix.install buildpath/"DevPing.app"
 
     # CLI shim so `devping` works from the terminal
     (bin/"devping").write <<~SH
