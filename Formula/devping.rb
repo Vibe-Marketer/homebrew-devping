@@ -21,15 +21,17 @@ class Devping < Formula
     SH
   end
 
+  def post_install
+    # Launch the app automatically after install so the menu bar icon appears immediately
+    system "open", "#{prefix}/DevPing.app"
+  end
+
   def caveats
     <<~EOS
-      DevPing has been installed as a menu bar app.
-
-      To launch it now:
-        open #{prefix}/DevPing.app
+      DevPing is now running in your menu bar — look for the ⚡ bolt icon.
 
       To have it start automatically at login, use the Settings menu
-      in the DevPing menu bar icon after launching.
+      in the DevPing menu bar icon.
 
       You can also trigger a notification via the CLI:
         devping "Your message here"
