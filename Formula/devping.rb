@@ -1,9 +1,9 @@
 class Devping < Formula
   desc "Native macOS notifications for AI coding assistants (Claude Code, OpenCode, etc.)"
   homepage "https://github.com/Vibe-Marketer/devping"
-  url "https://github.com/Vibe-Marketer/devping/releases/download/v1.0.0/DevPing-1.0.0-macOS.zip"
-  sha256 "7cb10fa914aab6803b17d28ca942e30f28b5e8e519a03c50ba8c000049959405"
-  version "1.0.0"
+  url "https://github.com/Vibe-Marketer/devping/releases/download/v1.1.0/DevPing-1.1.0-macOS.zip"
+  sha256 "58c983e3518f3269f4ea4399bd65a5dec2c71dbf80784ec010dd93511dcf2114"
+  version "1.1.0"
   license "MIT"
 
   depends_on :macos => :sonoma
@@ -11,7 +11,6 @@ class Devping < Formula
   def install
     # Homebrew moves the top-level zip directory (DevPing.app) INTO buildpath,
     # so buildpath itself IS DevPing.app (contains Contents/).
-    # We need to copy buildpath as DevPing.app into prefix.
     (prefix/"DevPing.app").mkpath
     system "cp", "-R", "#{buildpath}/.", "#{prefix}/DevPing.app/"
 
