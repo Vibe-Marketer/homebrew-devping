@@ -19,12 +19,16 @@ class Devping < Formula
   end
 
   def post_install
-    system "open", "#{prefix}/DevPing.app"
+    # Copy to /Applications so it appears in Launchpad and Spotlight
+    system "cp", "-R", "#{prefix}/DevPing.app", "/Applications/DevPing.app"
+    # Launch it
+    system "open", "/Applications/DevPing.app"
   end
 
   def caveats
     <<~EOS
-      DevPing is now running in your menu bar — look for the ⚡ bolt icon.
+      DevPing is installed in /Applications and running in your menu bar.
+      Look for the ⚡ bolt icon at the top of your screen.
 
       To have it start automatically at login, use the Settings menu
       in the DevPing menu bar icon.
