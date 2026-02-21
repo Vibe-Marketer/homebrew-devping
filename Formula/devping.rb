@@ -19,6 +19,8 @@ class Devping < Formula
   end
 
   def post_install
+    # Remove old copy first to avoid "Operation not permitted" on upgrades
+    system "rm", "-rf", "/Applications/DevPing.app"
     # Copy to /Applications so it appears in Launchpad, Spotlight, and Finder
     system "cp", "-R", "#{prefix}/DevPing.app", "/Applications/DevPing.app"
     # Launch after a short delay so macOS finishes registering the app bundle
