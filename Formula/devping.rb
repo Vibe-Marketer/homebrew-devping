@@ -1,9 +1,9 @@
 class Devping < Formula
   desc "Native macOS notifications for AI coding assistants (Claude Code, OpenCode, etc.)"
   homepage "https://github.com/Vibe-Marketer/devping"
-  url "https://github.com/Vibe-Marketer/devping/releases/download/v1.2.3/DevPing-1.2.3-macOS.zip"
-  sha256 "290ddd4e3db3da2df8727ca26c20e6d0fb16c3f4843e61008b3ee95e74c0e593"
-  version "1.2.3"
+  url "https://github.com/Vibe-Marketer/devping/releases/download/v1.2.4/DevPing-1.2.4-macOS.zip"
+  sha256 "c3e1585942b7b726aba796983f60872372179cc08bef04e11458a053346d2d84"
+  version "1.2.4"
   license "MIT"
 
   depends_on :macos => :sonoma
@@ -27,8 +27,8 @@ class Devping < Formula
 
   def caveats
     <<~EOS
-      DevPing is installed in /Applications and running in your menu bar.
-      Look for the ⚡ bolt icon at the top of your screen.
+      DevPing is installed in /Applications and will launch automatically.
+      Look for the ⚡ bolt icon in your menu bar.
 
       To have it start automatically at login, use the Settings menu
       in the DevPing menu bar icon.
