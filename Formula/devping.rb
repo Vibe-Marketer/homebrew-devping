@@ -1,9 +1,9 @@
 class Devping < Formula
   desc "Native macOS notifications for AI coding assistants (Claude Code, OpenCode, etc.)"
   homepage "https://github.com/Vibe-Marketer/devping"
-  url "https://github.com/Vibe-Marketer/devping/releases/download/v1.2.4/DevPing-1.2.4-macOS.zip"
-  sha256 "c3e1585942b7b726aba796983f60872372179cc08bef04e11458a053346d2d84"
-  version "1.2.4"
+  url "https://github.com/Vibe-Marketer/devping/releases/download/v1.2.5/DevPing-v1.2.5.zip"
+  sha256 "72e2fa69783acf35c49ceeb20750d6f9ad66d81a7cfdbd2277c72f66b7ec6852"
+  version "1.2.5"
   license "MIT"
 
   depends_on :macos => :sonoma
