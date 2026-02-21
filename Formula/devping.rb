@@ -19,10 +19,10 @@ class Devping < Formula
   end
 
   def post_install
-    # Copy to /Applications so it appears in Launchpad and Spotlight
+    # Copy to /Applications so it appears in Launchpad, Spotlight, and Finder
     system "cp", "-R", "#{prefix}/DevPing.app", "/Applications/DevPing.app"
-    # Launch it
-    system "open", "/Applications/DevPing.app"
+    # Launch after a short delay so macOS finishes registering the app bundle
+    system "bash", "-c", "sleep 2 && open /Applications/DevPing.app &"
   end
 
   def caveats
